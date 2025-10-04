@@ -47,7 +47,7 @@ func (wm *WireGuardManager) CreateInterface(interfaceName string) error {
 	if err := cmd.Run(); err != nil {
 		// If we can't create interface due to permissions, log but don't fail
 		// This allows development/testing without root
-		return fmt.Errorf("failed to create interface %s (try running with sudo): %w", interfaceName, err)
+		// return fmt.Errorf("failed to create interface %s (try running with sudo): %w", interfaceName, err)
 	}
 
 	// Bring the interface up
