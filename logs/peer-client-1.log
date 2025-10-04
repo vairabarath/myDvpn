@@ -1,0 +1,4 @@
+time="2025-10-04T10:52:58+05:30" level=info msg="Starting unified peer" exit_port=51821 id=peer-client-1 region=us-east-1 supernode="localhost:50052"
+time="2025-10-04T10:52:58+05:30" level=info msg="Authentication successful" peer_id=peer-client-1 session_id=peer-client-1-1759555378
+time="2025-10-04T10:52:58+05:30" level=info msg="Persistent stream manager started" peer_id=peer-client-1 region=us-east-1 role=client
+time="2025-10-04T10:52:58+05:30" level=fatal msg="Unified peer failed" error="failed to initialize client mode: failed to create client interface: failed to create interface wg-client-peer-client-1: exit status 2"

@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package control;
+
+option go_package = "myDvpn/clientPeer/proto";
+
+// Main persistent control stream service
+service ControlStream {
+  // Bi-directional persistent stream for all control communication
+  rpc PersistentControlStream(stream ControlMessage) returns (stream ControlMessage);
+}
+
+// SuperNode service for inter-supernode communication
+service SuperNode {
+  // Request exit peers from another SuperNode
+  rpc RequestExitPeer(RequestExitPeerRequest) returns (RequestExitPeerResponse);
+}
+
+message ControlMessage {
+  string message_id = 1;
+  int64 timestamp = 2;
+  
+  oneof payload {
+    AuthRequest auth_request = 10;
+    AuthResponse auth_response = 11;
+    PingRequest ping_request = 12;
+    PongResponse pong_response = 13;
+    Command command = 14;
+    CommandResponse command_response = 15;
+    InfoRequest info_request = 16;
+    InfoResponse info_response = 17;
+  }
+}
+
+message AuthRequest {
+  string peer_id = 1;
+  string role = 2; // "client", "exit", "supernode"
+  string pubkey_b64 = 3;
+  string region = 4;
+  string signature = 5; // Sign(peer_id||role||region||nonce)
+  string nonce = 6;
+}
+
+message AuthResponse {
+  bool success = 1;
+  string message = 2;
+  string session_id = 3;
+}
+
+message PingRequest {
+  int64 timestamp = 1;
+  string peer_id = 2;
+}
+
+message PongResponse {
+  int64 timestamp = 1;
+  int64 original_timestamp = 2;
+  string peer_id = 3;
+}
+
+message Command {
+  string command_id = 1;
+  CommandType type = 2;
+  map<string, string> payload = 3;
+}
+
+message CommandResponse {
+  string command_id = 1;
+  bool success = 2;
+  string message = 3;
+  map<string, string> result = 4;
+}
+
+message InfoRequest {
+  string peer_id = 1;
+  repeated string requested_fields = 2;
+}
+
+message InfoResponse {
+  string peer_id = 1;
+  map<string, string> info = 2;
+}
+
+enum CommandType {
+  SETUP_EXIT = 0;
+  ROTATE_PEER = 1;
+  RELAY_SETUP = 2;
+  DISCONNECT = 3;
+}
+
+// Inter-SuperNode communication
+message RequestExitPeerRequest {
+  string client_id = 1;
+  string region = 2;
+  string requesting_supernode_id = 3;
+}
+
+message RequestExitPeerResponse {
+  bool success = 1;
+  string message = 2;
+  ExitPeerInfo exit_peer = 3;
+  string session_id = 4;
+}
+
+message ExitPeerInfo {
+  string peer_id = 1;
+  string public_key = 2;
+  string endpoint = 3; // IP:port
+  repeated string allowed_ips = 4;
+  bool supports_direct_connection = 5;
+}

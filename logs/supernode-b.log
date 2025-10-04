@@ -1,0 +1,11 @@
+time="2025-10-04T10:52:53+05:30" level=info msg="Starting SuperNode" addr="0.0.0.0:50053" basenode="localhost:50051" id=supernode-b region=us-west-1
+time="2025-10-04T10:52:53+05:30" level=info msg="Successfully registered with BaseNode" supernode_id=supernode-b
+time="2025-10-04T10:52:53+05:30" level=info msg="Starting SuperNode server" addr="0.0.0.0:50053" id=supernode-b region=us-west-1
+time="2025-10-04T10:52:55+05:30" level=info msg="New control stream connected"
+time="2025-10-04T10:52:55+05:30" level=info msg="Registered new peer stream" peer_id=peer-exit-1 region=us-west-1 role=client session_id=peer-exit-1-1759555375
+time="2025-10-04T10:52:55+05:30" level=info msg="Peer authenticated successfully" peer_id=peer-exit-1 region=us-west-1 role=client session_id=peer-exit-1-1759555375
+time="2025-10-04T10:52:55+05:30" level=error msg="Error receiving message" error="rpc error: code = Canceled desc = context canceled" peer_id=peer-exit-1
+time="2025-10-04T10:52:55+05:30" level=info msg="Unregistered peer stream" peer_id=peer-exit-1 role=client
+time="2025-10-04T10:53:23+05:30" level=info msg="Successfully registered with BaseNode" supernode_id=supernode-b
+time="2025-10-04T10:53:53+05:30" level=info msg="Successfully registered with BaseNode" supernode_id=supernode-b
+time="2025-10-04T10:54:22+05:30" level=info msg="Shutting down SuperNode"

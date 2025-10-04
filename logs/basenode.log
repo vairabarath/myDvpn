@@ -1,0 +1,10 @@
+time="2025-10-04T10:52:49+05:30" level=info msg="Starting BaseNode" addr="0.0.0.0:50051"
+time="2025-10-04T10:52:49+05:30" level=info msg="Starting BaseNode server" addr="0.0.0.0:50051"
+time="2025-10-04T10:52:51+05:30" level=info msg="SuperNode registered/updated" current_load=0 ip_address=0.0.0.0 max_capacity=1000 port=50052 region=us-east-1 supernode_id=supernode-a
+time="2025-10-04T10:52:53+05:30" level=info msg="SuperNode registered/updated" current_load=0 ip_address=0.0.0.0 max_capacity=1000 port=50053 region=us-west-1 supernode_id=supernode-b
+time="2025-10-04T10:53:21+05:30" level=info msg="SuperNode registered/updated" current_load=0 ip_address=0.0.0.0 max_capacity=1000 port=50052 region=us-east-1 supernode_id=supernode-a
+time="2025-10-04T10:53:23+05:30" level=info msg="SuperNode registered/updated" current_load=0 ip_address=0.0.0.0 max_capacity=1000 port=50053 region=us-west-1 supernode_id=supernode-b
+time="2025-10-04T10:53:51+05:30" level=info msg="SuperNode registered/updated" current_load=0 ip_address=0.0.0.0 max_capacity=1000 port=50052 region=us-east-1 supernode_id=supernode-a
+time="2025-10-04T10:53:53+05:30" level=info msg="SuperNode registered/updated" current_load=0 ip_address=0.0.0.0 max_capacity=1000 port=50053 region=us-west-1 supernode_id=supernode-b
+time="2025-10-04T10:54:21+05:30" level=info msg="SuperNode registered/updated" current_load=0 ip_address=0.0.0.0 max_capacity=1000 port=50052 region=us-east-1 supernode_id=supernode-a
+time="2025-10-04T10:54:22+05:30" level=info msg="Shutting down BaseNode"

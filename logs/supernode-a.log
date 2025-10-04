@@ -1,0 +1,17 @@
+time="2025-10-04T10:52:51+05:30" level=info msg="Starting SuperNode" addr="0.0.0.0:50052" basenode="localhost:50051" id=supernode-a region=us-east-1
+time="2025-10-04T10:52:51+05:30" level=info msg="Successfully registered with BaseNode" supernode_id=supernode-a
+time="2025-10-04T10:52:51+05:30" level=info msg="Starting SuperNode server" addr="0.0.0.0:50052" id=supernode-a region=us-east-1
+time="2025-10-04T10:52:58+05:30" level=info msg="New control stream connected"
+time="2025-10-04T10:52:58+05:30" level=info msg="Registered new peer stream" peer_id=peer-client-1 region=us-east-1 role=client session_id=peer-client-1-1759555378
+time="2025-10-04T10:52:58+05:30" level=info msg="Peer authenticated successfully" peer_id=peer-client-1 region=us-east-1 role=client session_id=peer-client-1-1759555378
+time="2025-10-04T10:52:58+05:30" level=error msg="Error receiving message" error="rpc error: code = Canceled desc = context canceled" peer_id=peer-client-1
+time="2025-10-04T10:52:58+05:30" level=info msg="Unregistered peer stream" peer_id=peer-client-1 role=client
+time="2025-10-04T10:53:21+05:30" level=info msg="Successfully registered with BaseNode" supernode_id=supernode-a
+time="2025-10-04T10:53:51+05:30" level=info msg="Successfully registered with BaseNode" supernode_id=supernode-a
+time="2025-10-04T10:54:06+05:30" level=info msg="New control stream connected"
+time="2025-10-04T10:54:06+05:30" level=info msg="Registered new peer stream" peer_id=my-peer region=us-east-1 role=client session_id=my-peer-1759555446
+time="2025-10-04T10:54:06+05:30" level=info msg="Peer authenticated successfully" peer_id=my-peer region=us-east-1 role=client session_id=my-peer-1759555446
+time="2025-10-04T10:54:06+05:30" level=error msg="Error receiving message" error="rpc error: code = Canceled desc = context canceled" peer_id=my-peer
+time="2025-10-04T10:54:06+05:30" level=info msg="Unregistered peer stream" peer_id=my-peer role=client
+time="2025-10-04T10:54:21+05:30" level=info msg="Successfully registered with BaseNode" supernode_id=supernode-a
+time="2025-10-04T10:54:22+05:30" level=info msg="Shutting down SuperNode"

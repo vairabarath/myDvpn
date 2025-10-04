@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package base;
+
+option go_package = "myDvpn/base/proto";
+
+// BaseNode service for global coordination and SuperNode discovery
+service BaseNode {
+  // Register a SuperNode with the BaseNode
+  rpc RegisterSuperNode(RegisterSuperNodeRequest) returns (RegisterSuperNodeResponse);
+  
+  // Request exit peers from a specific region
+  rpc RequestExitRegion(RequestExitRegionRequest) returns (RequestExitRegionResponse);
+  
+  // Get list of all SuperNodes for admin purposes
+  rpc ListSuperNodes(ListSuperNodesRequest) returns (ListSuperNodesResponse);
+}
+
+message RegisterSuperNodeRequest {
+  string region = 1;
+  string supernode_id = 2;
+  string ip_address = 3;
+  int32 port = 4;
+  int32 current_load = 5; // Number of active peers
+  int32 max_capacity = 6;
+}
+
+message RegisterSuperNodeResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message RequestExitRegionRequest {
+  string target_region = 1;
+  string requesting_supernode_id = 2;
+}
+
+message RequestExitRegionResponse {
+  repeated SuperNodeInfo candidate_supernodes = 1;
+}
+
+message ListSuperNodesRequest {}
+
+message ListSuperNodesResponse {
+  repeated SuperNodeInfo supernodes = 1;
+}
+
+message SuperNodeInfo {
+  string supernode_id = 1;
+  string region = 2;
+  string ip_address = 3;
+  int32 port = 4;
+  int32 current_load = 5;
+  int32 max_capacity = 6;
+  int64 last_heartbeat = 7; // Unix timestamp
+}
