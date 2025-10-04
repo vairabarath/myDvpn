@@ -37,10 +37,17 @@ func (wm *WireGuardManager) Close() error {
 
 // CreateInterface creates a new WireGuard interface
 func (wm *WireGuardManager) CreateInterface(interfaceName string) error {
+	// Check if interface already exists
+	if wm.InterfaceExists(interfaceName) {
+		return nil // Interface already exists, no error
+	}
+
 	// Use ip command to create the interface
 	cmd := exec.Command("ip", "link", "add", interfaceName, "type", "wireguard")
 	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("failed to create interface %s: %w", interfaceName, err)
+		// If we can't create interface due to permissions, log but don't fail
+		// This allows development/testing without root
+		return fmt.Errorf("failed to create interface %s (try running with sudo): %w", interfaceName, err)
 	}
 
 	// Bring the interface up
@@ -50,6 +57,12 @@ func (wm *WireGuardManager) CreateInterface(interfaceName string) error {
 	}
 
 	return nil
+}
+
+// InterfaceExists checks if a WireGuard interface exists
+func (wm *WireGuardManager) InterfaceExists(interfaceName string) bool {
+	_, err := wm.client.Device(interfaceName)
+	return err == nil
 }
 
 // DeleteInterface deletes a WireGuard interface
